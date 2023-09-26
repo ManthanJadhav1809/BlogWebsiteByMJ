@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.error{
+    font-weight: bold;
+    font-size: 0.875rem;
+    color: #ff3300; 
+    text-align: center;   
+}
+.footer button:disabled{
+    background-color: gray;
+}
