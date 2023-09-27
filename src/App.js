@@ -10,7 +10,7 @@ import Signup from './Pages/Signup';
 
 
 function App() {
-  const [ npmisAuth,setIsAuth]=useState(localStorage.getItem("isAuth"));
+  const [ isAuth,setIsAuth]=useState(localStorage.getItem("isAuth"));
   // const [ isAuthUser,setIsAuthUser]=useState(localStorage.getItem("isAuthUser"));
 
   const signUserOut=()=>{
