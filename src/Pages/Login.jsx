@@ -61,12 +61,12 @@ function Login({ setIsAuth}) {
 
       <div className="loginform">
         <h1>Login</h1>
-        <Inputcontrol label="Email" placeholder="Enter Your Email" 
+        <Inputcontrol label="Email" type="email" placeholder="Enter Your Email" 
          onChange={
           (e)=>setValues((prev)=>({...prev,email:e.target.value}))
          }
         ></Inputcontrol>
-        <Inputcontrol label="Password" placeholder="Enter Your Password"
+        <Inputcontrol label="Password" type="password" placeholder="Enter Your Password"
         onChange={
           (e)=>setValues((prev)=>({...prev,pass:e.target.value}))
          }></Inputcontrol>
