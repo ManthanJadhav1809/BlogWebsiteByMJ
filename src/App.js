@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import {signOut} from 'firebase/auth'
 import { auth } from './firebase-config';
 import Signup from './Pages/Signup';
-y
+
 
 function App() {
   const [ isAuth,setIsAuth]=useState(localStorage.getItem("isAuth"));
