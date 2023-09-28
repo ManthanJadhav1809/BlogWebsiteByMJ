@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import {signOut} from 'firebase/auth'
 import { auth } from './firebase-config';
 import Signup from './Pages/Signup';
-
+y
 
 function App() {
   const [ isAuth,setIsAuth]=useState(localStorage.getItem("isAuth"));
@@ -22,7 +22,7 @@ function App() {
     })
   }
 
-  const [userName,setUserName]=useState("dddd");
+  const [userName,setUserName]=useState("");
   useEffect(()=>{
     if(!isAuth){
       setUserName("");
@@ -32,7 +32,8 @@ function App() {
       auth.onAuthStateChanged((user)=>{
         if(user){
           setUserName(user.displayName)
-        }else setUserName("");
+        }
+        else setUserName("");
         console.log(user.displayName);
       })
     }
@@ -52,7 +53,9 @@ function App() {
           <>
             <Link to={"/createpost"}>Create Post</Link>
             
-            <h1><i class="fa-regular fa-user"></i>  {userName}</h1>
+            
+            <h1>
+              <i class="fa-regular fa-user"></i> {userName}</h1>
             <button onClick={signUserOut}>LogOut</button>
           </>
         )}     

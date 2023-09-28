@@ -40,7 +40,6 @@ export default function Signup({setIsAuth}) {
         setSubmitButtonDisabled(false);
         setErrorMsg(err.message);
     })
-    console.log(values)
   }
 
     return (
@@ -55,9 +54,9 @@ export default function Signup({setIsAuth}) {
          }>  
         </Inputcontrol>
 
-        <Inputcontrol label="Email" placeholder="Enter Your Email"
+        <Inputcontrol label="Email" type="email" placeholder="Enter Your Email"
         onChange={(e)=>setValues((prev)=>({...prev,email:e.target.value}))}></Inputcontrol>
-        <Inputcontrol label="Password" placeholder="Enter Your Password"
+        <Inputcontrol label="Password" type="password" placeholder="Enter Your Password"
         onChange={(e)=>setValues((prev)=>({...prev,pass:e.target.value}))}></Inputcontrol>
 
         <div className="footer">
