@@ -87,6 +87,7 @@ function Login({ setIsAuth}) {
         </form> */}
       </div>
       <div>
+        <h4>OR <hr /> </h4>
         <p>Sign In with Google to Continue</p>
         <button className='login-with-google-btn' onClick={signInWithGoogle}>
           Sign in with Google

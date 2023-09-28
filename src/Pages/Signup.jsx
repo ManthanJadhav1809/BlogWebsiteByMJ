@@ -46,6 +46,7 @@ export default function Signup({setIsAuth}) {
     return (
     
     <div className="container">
+        <div className="cont">
         <h1>Signup</h1>
         <Inputcontrol label="Name" 
          placeholder="Enter Your Name" 
@@ -65,6 +66,8 @@ export default function Signup({setIsAuth}) {
           <p>
             Already have an account? <span><Link to="/login">Login</Link></span>
           </p>
+        </div>
+
         </div>
     </div>
   )

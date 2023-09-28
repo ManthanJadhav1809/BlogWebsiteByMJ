@@ -22,10 +22,11 @@ function App() {
     })
   }
 
-  const [userName,setUserName]=useState("");
+  const [userName,setUserName]=useState("dddd");
   useEffect(()=>{
     if(!isAuth){
       setUserName("");
+      console.log(userName)
     }
     else{
       auth.onAuthStateChanged((user)=>{
@@ -36,7 +37,7 @@ function App() {
       })
     }
     //eslint-disable-next-line
-  },[])
+  },[userName])
   return (
      <Router>
        <nav>
@@ -50,8 +51,9 @@ function App() {
         ):(
           <>
             <Link to={"/createpost"}>Create Post</Link>
-             <h1><i class="fa-regular fa-user"></i> {userName}</h1>
-            <button onClick={signUserOut}> <i class="fa-light fa-right-from-bracket">Logout</i> </button>
+            
+            <h1><i class="fa-regular fa-user"></i>  {userName}</h1>
+            <button onClick={signUserOut}>LogOut</button>
           </>
         )}     
        </nav>

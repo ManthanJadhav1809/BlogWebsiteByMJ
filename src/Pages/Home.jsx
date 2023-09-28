@@ -23,6 +23,7 @@ function Home({isAuth}) {
     await deleteDoc(postDoc);
   }
   return (
+    
     <div className='homePage'>
     {postLists.map((post)=>{
      return (
@@ -35,13 +36,13 @@ function Home({isAuth}) {
             {
               isAuth && post.author.id === auth.currentUser.uid &&
               <>
-              <i class="fa-solid fa-trash">
+              
               <button onClick={
                 ()=>{
                   deletePost(post.id)
                 }
-              }></button>
-              </i>
+              }><i class="fa-solid fa-trash"></i></button>
+              
               </>
               
             }
