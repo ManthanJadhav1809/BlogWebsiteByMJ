@@ -31,11 +31,6 @@ function Login({ setIsAuth}) {
             setSubmitButtonDisabled(false);
             localStorage.setItem("IsAuth", true);
             setIsAuth(true);
-            // const user=res.user;
-            // console.log(user)
-            // await updateProfile(user,{
-            //     displayName:values.name,
-            // });
             navigate("/")          
                 },
         
@@ -43,7 +38,7 @@ function Login({ setIsAuth}) {
         setSubmitButtonDisabled(false);
         setErrorMsg(err.message);
     })
-    console.log(values)
+    
   }
 
   const signInWithGoogle = () => {

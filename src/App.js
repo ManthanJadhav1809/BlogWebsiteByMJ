@@ -24,11 +24,8 @@ function App() {
 
   const [userName,setUserName]=useState("");
   useEffect(()=>{
-    if(!isAuth){
-      setUserName("");
-      console.log(userName)
-    }
-    else{
+    console.log(isAuth)
+    if(isAuth===true){
       auth.onAuthStateChanged((user)=>{
         if(user){
           setUserName(user.displayName)
@@ -37,8 +34,12 @@ function App() {
         console.log(user.displayName);
       })
     }
+    else{
+      setUserName("");
+      console.log(userName)
+    }
     //eslint-disable-next-line
-  },[userName])
+  },[])
   return (
      <Router>
        <nav>
@@ -51,11 +52,9 @@ function App() {
           
         ):(
           <>
-            <Link to={"/createpost"}>Create Post</Link>
-            
-            
+            <Link to={"/createpost"}>Create Post</Link> 
             <h1>
-              <i class="fa-regular fa-user"></i> {userName}</h1>
+             <i class="fa-regular fa-user"></i> {userName}</h1>
             <button onClick={signUserOut}>LogOut</button>
           </>
         )}     
