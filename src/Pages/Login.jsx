@@ -73,13 +73,6 @@ function Login({ setIsAuth}) {
             Dont have an account? <span><Link to="/Signup">Sign Up</Link></span>
           </p>
         </div>
-        {/* <h1>{login?"SignIn":"SignUp"}</h1>
-        <form onSubmit={(e)=>handleSubmit(e,login?"signIn":"SignUp")}>
-          <input name='email' type="email"  placeholder='Email'/> <br />
-          <input name="password" type="password" placeholder='Password'/><br />
-          <br />
-          <button>{login?"SignIn":"SignUp"}</button>
-        </form> */}
       </div>
       <div>
         <h4>OR <hr /> </h4>

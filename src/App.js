@@ -10,7 +10,7 @@ import Signup from './Pages/Signup';
 
 
 function App() {
-  const [ isAuth,setIsAuth]=useState(localStorage.getItem("isAuth"));
+  const [ isAuth,setIsAuth]=useState(localStorage.getItem("IsAuth") );
   // const [ isAuthUser,setIsAuthUser]=useState(localStorage.getItem("isAuthUser"));
 
   const signUserOut=()=>{
@@ -24,7 +24,7 @@ function App() {
 
   const [userName,setUserName]=useState("");
   useEffect(()=>{
-    console.log(isAuth)
+    console.log("is auth "+isAuth)
     if(isAuth===true){
       auth.onAuthStateChanged((user)=>{
         if(user){
@@ -39,7 +39,7 @@ function App() {
       console.log(userName)
     }
     //eslint-disable-next-line
-  },[])
+  })
   return (
      <Router>
        <nav>
