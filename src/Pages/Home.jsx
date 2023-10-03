@@ -2,12 +2,11 @@
 import React,{ useEffect,useState } from 'react';
 import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import { auth, db } from '../firebase-config';
-
+import "./home.css"
 function Home({isAuth}) {
   const [postLists,setPostList]=useState([]);
   const postCollectionRef=collection(db,"posts");
-
-  
+//  console.log();
   useEffect(()=>{
     const getPosts=async()=>{
       const data =await getDocs(postCollectionRef);
@@ -16,18 +15,68 @@ function Home({isAuth}) {
         {...doc.data(),id:doc.id})));
     };
     getPosts();
-  });
+  },[isAuth]);
 
   const deletePost=async(id)=>{
     const postDoc=doc(db,"posts",id);
     await deleteDoc(postDoc);
+  };
+
+  const[UserName,setUser]=useState("");
+  let [userPostCount,setUserpost]=useState(0);
+    
+  const getUserPost=()=>{
+
+    console.log("isAuth ="+isAuth)
+    if(isAuth === true)
+    {
+     console.log(auth.currentUser.displayName)
+     setUser(auth.currentUser.displayName); 
+     
+     let count = 0;
+     postLists.forEach((post) => {
+      if (post.author.name === UserName) {
+        count++; // Increment the count for each post matching the user's name
+      }
+     });
+
+     setUserpost(count);
+    
+   }
+    //  console.log(UserName+" "+"count"+userPostCount)
   }
+  useEffect(()=>{
+   if(isAuth===true) 
+    getUserPost();
+    
+  },[isAuth,postLists])
+  
   return (
     
     <div className='homePage'>
-    {postLists.map((post)=>{
+      <div className="postcount">
+        {
+           isAuth
+           ?
+           <div className="top-right-container">
+            <div className="user-post-count">
+            <span>
+             All Post <br />{postLists.length}
+            </span>
+            </div>
+            <div className="user-post-count"> 
+              <span >
+                  Your Post <br />{userPostCount}
+              </span>
+              </div>
+            </div>
+           :``
+        }
+        
+      </div>
+     {postLists.map((post)=>{
      return (
-      <div  className="post">
+      <div key={post.id} className="post">
         <div className="postHeader">
           <div className="title">
             <h1>{post.title}</h1>
@@ -52,8 +101,8 @@ function Home({isAuth}) {
         <div className="postTextContainer">{post.postText}</div>
         <h3><i class="fa-regular fa-user"></i>  {post.author.name}</h3>
       </div>
-     ) 
-    })}
+      ) 
+     })}
     </div>
   )
 }

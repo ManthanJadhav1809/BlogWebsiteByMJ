@@ -10,9 +10,13 @@ import Signup from './Pages/Signup';
 
 
 function App() {
-  const [ isAuth,setIsAuth]=useState(localStorage.getItem("IsAuth") );
+  const [ isAuth,setIsAuth]=useState(false);
   // const [ isAuthUser,setIsAuthUser]=useState(localStorage.getItem("isAuthUser"));
 
+  useEffect(()=>{
+    const authStatus=localStorage.getItem("IsAuth");
+    authStatus ? setIsAuth(true) :setIsAuth(false);
+  })
   const signUserOut=()=>{
     signOut(auth).then(()=>{
       localStorage.clear();
@@ -24,22 +28,23 @@ function App() {
 
   const [userName,setUserName]=useState("");
   useEffect(()=>{
-    console.log("is auth "+isAuth)
+    // console.log("is auth "+isAuth)
     if(isAuth===true){
       auth.onAuthStateChanged((user)=>{
         if(user){
           setUserName(user.displayName)
         }
         else setUserName("");
-        console.log(user.displayName);
+        // console.log(user.displayName);
       })
     }
     else{
       setUserName("");
-      console.log(userName)
+      // console.log(userName)
     }
     //eslint-disable-next-line
   })
+  
   return (
      <Router>
        <nav>
