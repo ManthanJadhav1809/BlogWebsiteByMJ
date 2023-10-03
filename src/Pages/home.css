@@ -1,13 +1,29 @@
 .top-right-container {
     position: fixed;
-    top: 97px;
+    top:176px;;
     right: 10px;
     text-align: right;
-    padding: 1rem 2rem;
+    padding: 0rem 1rem;
     box-shadow: 0px 0px 10px;
   }
   
 
   .user-post-count {
-    margin-right: 10px; /* Add some spacing between the spans */
+    border: 2px solid red;
+    padding: 3px 9px;
+    margin: 10px 1px;
+    font-weight: bold;
+    /* margin-right: 10px; */
+    font-size: 20px;
+  }
+
+  .textWel{
+    font-size: 50px;
+    font-weight: 900;
+    text-transform: uppercase;
+    background-image: url(/src/Component/color.jpeg);
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    color: transparent;
   }

@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import {signOut} from 'firebase/auth'
 import { auth } from './firebase-config';
 import Signup from './Pages/Signup';
+import UserPost from './Pages/UserPost';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           
         ):(
           <>
+           <Link to={"/Userpost"}>Your Posts</Link>
             <Link to={"/createpost"}>Create Post</Link> 
             <h1>
              <i class="fa-regular fa-user"></i> {userName}</h1>
@@ -66,6 +68,7 @@ function App() {
        </nav>
         <Routes>
            <Route path="/" element={ <Home  isAuth={isAuth}></Home>}></Route>
+           <Route path="/UserPost" element={<UserPost  isAuth={isAuth}></UserPost>}></Route>
            <Route path="/createPost" element={<CreatePost  isAuth={isAuth}></CreatePost>}></Route>
            <Route path="/login" element={<Login setIsAuth={setIsAuth}></Login>}></Route>
            <Route path='/Signup' element={<Signup setIsAuth={setIsAuth}></Signup>} />

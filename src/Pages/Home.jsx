@@ -27,10 +27,8 @@ function Home({isAuth}) {
     
   const getUserPost=()=>{
 
-    console.log("isAuth ="+isAuth)
     if(isAuth === true)
     {
-     console.log(auth.currentUser.displayName)
      setUser(auth.currentUser.displayName); 
      
      let count = 0;
@@ -54,6 +52,7 @@ function Home({isAuth}) {
   return (
     
     <div className='homePage'>
+       <h1 className='textWel'> Welcome to Blog website</h1>
       <div className="postcount">
         {
            isAuth
