@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import { auth, db } from '../firebase-config';
-import "./UserPost.css"
+import "./UserPost.css";
+import { format, fromUnixTime } from 'date-fns';
+import { Link} from 'react-router-dom';
 
 function UserPost({ isAuth }) {
   const [postLists, setPostList] = useState([]);
@@ -47,7 +49,11 @@ function UserPost({ isAuth }) {
     if (isAuth === true)
       getUserPost();
 
+      
+
   }, [isAuth, postLists])
+
+  
 
   return (
 
@@ -102,43 +108,19 @@ function UserPost({ isAuth }) {
                             () => {
                               deletePost(post.id)
                             }
-                          }><i class="fa-solid fa-trash"></i></button>
-
+                            }><i class="fa-solid fa-trash"></i>
+                          </button>
+                          
+                          <button><Link to={`/UpdatePost`}>Update</Link></button>
                         </>
                       }
+                      
                       <button>Like</button>
-                      <button>Update</button>
+                      <span>{format(fromUnixTime(post.createdAt.seconds),'d/MM/yyyy - h:mm a')}</span>
                     </div>
                   </div>
                 </div>
               </div>
-              {/* ******* */}
-
-              {/* <div key={post.id} className="post">
-
-<div className="postHeader">
-  <div className="title">
-    <h1>{post.title}</h1>
-  </div>
-  <div className="deletePost">
-    {
-      isAuth && post.author.id === auth.currentUser.uid &&
-      <>
-      <button onClick={
-        ()=>{
-          deletePost(post.id)
-        }
-      }><i class="fa-solid fa-trash"></i></button>
-      </>
-      
-    }
-    
-  </div>
-</div>
-<div className="postTextContainer">{post.postText}</div>
-<h3><i class="fa-regular fa-user"></i>  {post.author.name}</h3>
-<button className='updatePostBtn'>Update Post</button>
-              </div> */}
             </>
 
 

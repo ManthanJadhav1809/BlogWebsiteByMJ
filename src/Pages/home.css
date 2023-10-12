@@ -7,10 +7,7 @@
     box-shadow: 0px 0px 10px;
   }
   
-.PostBtn{
-  display: flex;
-  margin-bottom: 10px;
-}
+
   .user-post-count {
     border: 2px solid red;
     padding: 3px 9px;
@@ -21,6 +18,7 @@
   }
 
   .textWel{
+    text-align: center;
     font-size: 50px;
     font-weight: 900;
     text-transform: uppercase;
@@ -32,7 +30,19 @@
   }
 
   .postImage{
-    width:100%;
+    border: 8px double;
+    height: 228px;
+    width: 516px;
+    margin-top: 10px;
+  }
+  @media screen and (max-width: 1300px) {
+  
+    .postImage{
+      border: 8px double;
+      width: 100%;
+      margin-top: 10px;
+    }
+    
   }
   .postImage2 {
     /* display: flex; */
@@ -40,6 +50,9 @@
     align-items: center;
     justify-content: center;
 }
+
+
+
   .Post-card {
     display: flex;
     flex-direction: column;
@@ -47,6 +60,7 @@
  }
 
   .card-container{
+    border-radius: 60px;
     margin: 22px 0px;
     box-shadow: 0px 0px 10px;
     /* display: flex; */
@@ -74,6 +88,26 @@
   text-align: center;
   /* justify-content: space-around; */
 }
+.PostBtn{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  /* flex-wrap: wrap; */
+  margin-bottom: 10px;
+}
+
+/* Styles for screens less than 400px */
+@media screen and (max-width: 450px) {
+ 
+.card-container {
+    margin: 22px 0px;
+    box-shadow: 0px 0px 10px;
+    width: 70%;
+}
+
+}
+
+
 .userInfo {
   font-size: large;
   padding: 11px;
@@ -82,3 +116,4 @@
   margin: 4px 11px;
   padding: 0px 4px;
 }
+

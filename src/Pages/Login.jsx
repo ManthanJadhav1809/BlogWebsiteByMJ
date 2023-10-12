@@ -33,13 +33,14 @@ function Login({ setIsAuth}) {
             setSubmitButtonDisabled(false);
             localStorage.setItem("IsAuth", true);
             setIsAuth(true);
-            navigate("/")          
+            navigate("/");
+            toast.success("Login Done Sucessfully");          
                 },
     ).catch(err=>{
         setSubmitButtonDisabled(false);
         setErrorMsg(err.message);
     })
-    toast.success("Login Done Sucessfully");
+    
   }
 
   const signInWithGoogle = () => {
