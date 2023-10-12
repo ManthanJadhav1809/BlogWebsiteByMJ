@@ -1,0 +1,43 @@
+.createPostForm{
+    box-shadow: 0px 0px 10px ;
+  }
+ 
+    .createPost {
+        height: 138vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .createPostForm {
+        /* text-align: center; */
+        box-shadow: 0px 0px 10px;
+        padding: 10px 21px;
+        /* margin: 40px 77px; */
+    }
+    .inputGp {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 12px 0px;
+    }
+    .inputGp label {
+        font-family: emoji;
+        font-size: x-large;
+    }
+    .inputGp input {
+        border: 1px solid;
+    }
+    .inputGp textarea {
+        border: 1px solid;
+    } 
+    .postBtn{
+        font-size: x-large;
+    width: 100%;
+    padding: 9px 7px;
+    border: none;
+    text-align: center;
+    background-color: #9900ff;
+    color: black;
+    font-weight: bold;
+    }
+ 

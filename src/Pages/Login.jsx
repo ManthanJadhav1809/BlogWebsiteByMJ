@@ -5,6 +5,7 @@ import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import Inputcontrol from '../Component/Inputcontrol'
+import { toast } from 'react-toastify'
 
 function Login({ setIsAuth}) {
 
@@ -21,6 +22,7 @@ function Login({ setIsAuth}) {
   const handelSubmit= ()=>{
     if(!values.email||!values.pass){
         setErrorMsg("Fill all Fields");
+        toast.warning("Please fill proper Data");
         return;
     }
     setErrorMsg("")
@@ -33,12 +35,11 @@ function Login({ setIsAuth}) {
             setIsAuth(true);
             navigate("/")          
                 },
-        
     ).catch(err=>{
         setSubmitButtonDisabled(false);
         setErrorMsg(err.message);
     })
-    
+    toast.success("Login Done Sucessfully");
   }
 
   const signInWithGoogle = () => {

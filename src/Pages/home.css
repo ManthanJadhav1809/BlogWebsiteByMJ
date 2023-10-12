@@ -7,7 +7,10 @@
     box-shadow: 0px 0px 10px;
   }
   
-
+.PostBtn{
+  display: flex;
+  margin-bottom: 10px;
+}
   .user-post-count {
     border: 2px solid red;
     padding: 3px 9px;
@@ -27,3 +30,55 @@
     -webkit-background-clip: text;
     color: transparent;
   }
+
+  .postImage{
+    width:100%;
+  }
+  .postImage2 {
+    /* display: flex; */
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+  .Post-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+  .card-container{
+    margin: 22px 0px;
+    box-shadow: 0px 0px 10px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    width: 50%;
+  }
+  .postContant {
+    padding: 0px 11px;
+}
+.postContant h3 {
+  font-size: 37px;
+  padding: 0px;
+  margin: 8px 0px;
+  font-family: emoji;
+}
+.postContant p {
+  font-size: initial;
+  font-family: cursive;
+}
+.postButtons {
+  /* display: flex; */
+  /* flex-direction: row; */
+  text-align: center;
+  /* justify-content: space-around; */
+}
+.userInfo {
+  font-size: large;
+  padding: 11px;
+}
+.PostBtn i, .PostBtn button {
+  margin: 4px 11px;
+  padding: 0px 4px;
+}

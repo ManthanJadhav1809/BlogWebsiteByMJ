@@ -10,10 +10,10 @@ body {
 nav {
   margin: 0;
   width: 100%;
-  height: 80px;
+  height: 48px;
   background-color: black;
   display: flex;
-  justify-content:space-around;;
+  justify-content: space-around;
   align-items: center;
   color: white;
   text-decoration: none;
@@ -22,8 +22,24 @@ nav {
 a {
   color: white;
   text-decoration: none;
-  margin: 10px;
-  font-size: 25px;
+  /* margin: 10px; */
+  font-size: 1.2rem;
+}
+.btnlogout{
+  font-family: system-ui;
+  border-radius: 30px;
+  padding: 2px 8px;
+  color: white;
+  background: darkorange;  
+} 
+.btnlogout:hover{
+  box-shadow: 6px 3px 10px #0bebcc;
+}
+.userName{
+  font-size: 1.2rem;
+}
+.divLog{
+  font-size: 1.2rem;
 }
 
 .createPostPage {

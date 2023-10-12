@@ -1,4 +1,5 @@
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 import {BrowserRouter as Router,Routes,Route,Link}from "react-router-dom"; 
 import Home from './Pages/Home';
 import CreatePost from './Pages/CreatePost';
@@ -8,6 +9,7 @@ import {signOut} from 'firebase/auth'
 import { auth } from './firebase-config';
 import Signup from './Pages/Signup';
 import UserPost from './Pages/UserPost';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
@@ -60,12 +62,18 @@ function App() {
           <>
            <Link to={"/Userpost"}>Your Posts</Link>
             <Link to={"/createpost"}>Create Post</Link> 
-            <h1>
-             <i class="fa-regular fa-user"></i> {userName}</h1>
-            <button onClick={signUserOut}>LogOut</button>
+            <h1 className='userName'>
+             <i class="fa-regular fa-user"></i> {userName}
+            </h1>
+
+            <div className='divLog'>
+             <button className='btnlogout' onClick={signUserOut}><i class="fa fa-sign-out"></i>  LogOut</button>
+            </div> 
+            
           </>
         )}     
        </nav>
+       <ToastContainer />
         <Routes>
            <Route path="/" element={ <Home  isAuth={isAuth}></Home>}></Route>
            <Route path="/UserPost" element={<UserPost  isAuth={isAuth}></UserPost>}></Route>
