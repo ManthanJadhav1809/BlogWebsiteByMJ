@@ -111,7 +111,9 @@ function UserPost({ isAuth }) {
                             }><i class="fa-solid fa-trash"></i>
                           </button>
                           
-                          <button><Link to={`/UpdatePost`}>Update</Link></button>
+                          <button>
+                          <Link to={`/UpdatePost/${post.id}`}>Update</Link>
+                          </button>
                         </>
                       }
                       

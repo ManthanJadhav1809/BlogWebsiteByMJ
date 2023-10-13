@@ -39,7 +39,8 @@ export default function UpdatePost() {
     setImage(file);
   };
 
-  const updateData = async () => {
+  const updateData = async (e) => {
+    e.prevenDefault();
     try {
       if (image) {
         // Upload the new image to Firebase Storage
@@ -76,10 +77,10 @@ export default function UpdatePost() {
     }
   };
   return (
-    <div>
+    <div className='createPost'>
       <h2>Update Post</h2>
-      <form>
-        <div>
+      <form className="createPostForm">
+        <div className="inputGp">
           <label>Title:</label>
           <input
             type="text"
@@ -87,18 +88,18 @@ export default function UpdatePost() {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGp">
           <label>Description:</label>
           <textarea
             value={postText}
             onChange={(e) => setPostText(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGp">
           <label>Image:</label>
           <input type="file" accept="image/*" onChange={handleImageChange} />
         </div>
-        <button onClick={updateData}>Update Data</button>
+        <button className='postBtn' onClick={updateData}>Update Data</button>
       </form>
     </div>
   );
