@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { db } from "../firebase-config";
 import { toast } from "react-toastify";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import "./CreatePost.css";
 
 export default function UpdatePost() {
   const { postId } = useParams();
@@ -40,7 +41,7 @@ export default function UpdatePost() {
   };
 
   const updateData = async (e) => {
-    e.prevenDefault();
+    e.preventDefault();
     try {
       if (image) {
         // Upload the new image to Firebase Storage

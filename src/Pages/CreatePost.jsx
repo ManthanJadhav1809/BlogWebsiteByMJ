@@ -34,6 +34,7 @@ function CreatePost({ isAuth }) {
           title,
           postText,
           imageUrl,
+          likes:0,
           createdAt: serverTimestamp(),
           author: {
             name: auth.currentUser.displayName,

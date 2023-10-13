@@ -48,10 +48,7 @@ function UserPost({ isAuth }) {
   useEffect(() => {
     if (isAuth === true)
       getUserPost();
-
-      
-
-  }, [isAuth, postLists])
+  }, [isAuth, getUserPost])
 
   
 

@@ -20,7 +20,7 @@ function App() {
   useEffect(()=>{
     const authStatus=localStorage.getItem("IsAuth");
     authStatus ? setIsAuth(true) :setIsAuth(false);
-  })
+  },[])
   const signUserOut=()=>{
     signOut(auth).then(()=>{
       localStorage.clear();
@@ -47,7 +47,7 @@ function App() {
       // console.log(userName)
     }
     //eslint-disable-next-line
-  })
+  },[isAuth])
   
   return (
      <Router>

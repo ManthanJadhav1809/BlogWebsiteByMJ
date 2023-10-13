@@ -56,7 +56,7 @@ function Home({ isAuth }) {
     if (isAuth === true) 
     getUserName();
   // isAuth,postLists in array
-  }, [isAuth,postLists]);
+  }, [isAuth,getUserName]);
 
   // like button code
   const [likedPosts, setLikedPosts] = useState([]);
@@ -145,7 +145,7 @@ function Home({ isAuth }) {
                         </button>
 
                         <button>
-                          <Link to={`/UpdatePost/${post.id}`}>Update</Link>
+                          <Link style={{color:"white", fontSize:"1.2rem",textAlign:"center"}} to={`/UpdatePost/${post.id}`}>Update</Link>
                         </button>
                       </>
                     )}

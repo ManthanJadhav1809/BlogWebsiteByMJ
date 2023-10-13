@@ -3,6 +3,7 @@
   }
  
     .createPost {
+        flex-direction: column;
         height: 84vh;
         display: flex;
         justify-content: center;
@@ -41,3 +42,12 @@
     font-weight: bold;
     }
  
+@media screen and (max-width:1300px) {
+    .createPostForm {
+        /* text-align: center; */
+        box-shadow: 0px 0px 10px;
+        padding: 10px 21px;
+        /* margin: 40px 77px; */
+        width: 80%;
+    }    
+}
