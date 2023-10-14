@@ -89,6 +89,8 @@ function Home({ isAuth }) {
   return (
     <div className="homePage">
       <h1 className="textWel"> Welcome to Blog website</h1>
+      
+      
       <div className="postcount">
         {isAuth ? (
           <div className="top-right-container">
@@ -130,7 +132,7 @@ function Home({ isAuth }) {
                 <div className="postButtons">
                   <div className="userInfo">
                     <i class="fa-regular fa-user"></i>
-                    {post.author.name}
+                    <Link style={{color:"black"}} to={`/UserProfilePost/${post.author.name}`}>{post.author.name}</Link>
                   </div>
                   <div className="PostBtn">
                     {isAuth && post.author.id === auth.currentUser.uid && (
