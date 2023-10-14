@@ -28,27 +28,28 @@ function UserPost({ isAuth }) {
   const [UserName, setUser] = useState("");
   let [userPostCount, setUserpost] = useState(0);
 
-  const getUserPost = () => {
-
-    if (isAuth === true) {
-      setUser(auth.currentUser.displayName);
-
-      let count = 0;
-      postLists.forEach((post) => {
-        if (post.author.name === UserName) {
-          count++; // Increment the count for each post matching the user's name
-        }
-      });
-
-      setUserpost(count);
-
-    }
-    //  console.log(UserName+" "+"count"+userPostCount)
-  }
+  
   useEffect(() => {
-    if (isAuth === true)
-      getUserPost();
-  }, [isAuth, getUserPost])
+    // if (isAuth === true)
+    const getUserPost = () => {
+
+      if (isAuth === true) {
+        setUser(auth.currentUser.displayName);
+  
+        let count = 0;
+        postLists.forEach((post) => {
+          if (post.author.name === UserName) {
+            count++; // Increment the count for each post matching the user's name
+          }
+        });
+  
+        setUserpost(count);
+  
+      }
+      //  console.log(UserName+" "+"count"+userPostCount)
+    }
+    getUserPost()
+  }, [isAuth,UserName,postLists])
 
   
 
@@ -109,7 +110,7 @@ function UserPost({ isAuth }) {
                           </button>
                           
                           <button>
-                          <Link to={`/UpdatePost/${post.id}`}>Update</Link>
+                          <Link style={{color:"black", fontSize:"1rem",textAlign:"center"}} to={`/UpdatePost/${post.id}`}>Update</Link>
                           </button>
                         </>
                       }

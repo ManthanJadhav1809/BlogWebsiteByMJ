@@ -26,9 +26,9 @@ function Home({ isAuth }) {
     };
     getPosts();
     //isAuth in array
-  }, [isAuth]);
+  }, [isAuth, postCollectionRef]);
 
-// code for delete post
+  // code for delete post
   const deletePost = async (id) => {
     const postDoc = doc(db, "posts", id);
     await deleteDoc(postDoc);
@@ -37,26 +37,26 @@ function Home({ isAuth }) {
   const [UserName, setUser] = useState("");
   let [userPostCount, setUserpost] = useState(0);
 
-  const getUserName = () => {
-    if (isAuth === true) {
-      setUser(auth.currentUser.displayName);
-
-      let count = 0;
-      postLists.forEach((post) => {
-        if (post.author.name === UserName) {
-          count++; // Increment the count for each post matching the user's name
-        }
-      });
-
-      setUserpost(count);
-    }
-    //  console.log(UserName+" "+"count"+userPostCount)
-  };
   useEffect(() => {
-    if (isAuth === true) 
+    const getUserName = () => {
+      if (isAuth === true) {
+        setUser(auth.currentUser.displayName);
+
+        let count = 0;
+        postLists.forEach((post) => {
+          if (post.author.name === UserName) {
+            count++; // Increment the count for each post matching the user's name
+          }
+        });
+
+        setUserpost(count);
+      }
+      //  console.log(UserName+" "+"count"+userPostCount)
+    };
+    // if (isAuth === true)
     getUserName();
-  // isAuth,postLists in array
-  }, [isAuth,getUserName]);
+    // isAuth,postLists in array
+  }, [isAuth,UserName,postLists]);
 
   // like button code
   const [likedPosts, setLikedPosts] = useState([]);
@@ -87,7 +87,6 @@ function Home({ isAuth }) {
   };
 
   return (
-    
     <div className="homePage">
       <h1 className="textWel"> Welcome to Blog website</h1>
       <div className="postcount">
@@ -145,7 +144,16 @@ function Home({ isAuth }) {
                         </button>
 
                         <button>
-                          <Link style={{color:"white", fontSize:"1.2rem",textAlign:"center"}} to={`/UpdatePost/${post.id}`}>Update</Link>
+                          <Link
+                            style={{
+                              color: "black",
+                              fontSize: "1rem",
+                              textAlign: "center",
+                            }}
+                            to={`/UpdatePost/${post.id}`}
+                          >
+                            Update
+                          </Link>
                         </button>
                       </>
                     )}

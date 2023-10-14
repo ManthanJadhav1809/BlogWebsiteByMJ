@@ -70,6 +70,7 @@
     width: 50%;
   }
   .postContant {
+    text-align: center;
     padding: 0px 11px;
 }
 .postContant h3 {
@@ -80,7 +81,7 @@
 }
 .postContant p {
   font-size: initial;
-  font-family: cursive;
+    font-family: initial;
 }
 .postButtons {
   /* display: flex; */
